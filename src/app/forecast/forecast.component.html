@@ -1,0 +1,59 @@
+<!-- old forecast
+<div id='forecast'>
+<h1>Weather Forecast</h1>
+  <label>auto refresh?</label><Button (click)='click()'>{{status}}</Button>
+<span style="position: middel">City: {{forecastdata.city.name}}</span>
+  <div style="height:600px;overflow: auto">
+  <ul class="search-result">
+    <li *ngFor="let weather of forecastdata.list" >
+      <h1>{{weather.dt_txt}}</h1>
+      <label>temp_min&emsp;</label><span>{{(weather.main.temp_min-273)*9/5+32}}</span><br>
+      <label>temp_max&emsp;</label><span>{{(weather.main.temp_max-273)*9/5+32}}</span><br>
+      <label>cloud&emsp;</label><span>{{weather.clouds.all}}</span><br>
+      <label>wind&emsp;</label><span>speed: {{weather.wind.speed}}, deg: {{weather.wind.deg}}</span><br>
+      <label>humidity&emsp;</label><span>{{weather.main.humidity}}</span><br>
+      <label>pressure&emsp;</label><span>{{weather.main.pressure}}</span><br>
+      <label>description&emsp;</label><span>{{weather.weather[0].description}}</span><br>
+    </li>
+  </ul>
+</div>
+</div>
+-->
+<div id='instantweather'>
+  <h1>Weather Forecast</h1>
+    <label>auto refresh?</label><Button (click)='click()'>{{status}}</Button>
+
+  <span style="position: middel">City: {{forecastdata.city.name}}</span>
+    <div style="height:600px;overflow: auto">
+      <!-- old forecast
+      <ul class="search-result" style="list-style-type:none; width:25%; float:left;">
+      <li  ><br>date</li>
+      <li  >temp_min</li>
+      <li  >temp_max</li>
+      <li  >clouds</li>
+      <li  >wind</li>
+      <li  >humidity</li>
+      <li  >pressure</li>
+      <li  >description</li>
+      </ul>
+    -->
+
+      <div *ngFor="let weather of forecastdata.list; let i= index" >
+        <div *ngIf="i<3">
+
+        <ul class="search-result" style="list-style-type:none;width:33%; float:left;">
+        <li style="display: inline;">{{weather.dt_txt}}</li><br>
+        <li style="display: inline;" ><strong>temp_min: </strong>{{(weather.main.temp_min-273)*9/5+32|round:0}}<span>&emsp;F</span></li><br>
+        <li style="display: inline;" ><strong>temp_max: </strong>{{(weather.main.temp_max-273)*9/5+32|round:0}}<span>&emsp;F</span></li><br>
+        <li style="display: inline;" ><strong>cloud: </strong>{{weather.clouds.all|round:0}}<span>&emsp;Cloudiness</span></li><br>
+        <li style="display: inline;" ><strong>wind-speed: </strong>{{weather.wind.speed|round:0}}<span> meter</span></li><br>
+        <li style="display: inline;" ><strong>wind-deg: </strong>{{weather.wind.deg|round:0}}<span> degree</span></li><br>
+        <li style="display: inline;" ><strong>humidity: </strong>{{weather.main.humidity|round:0}}<span>&emsp;%</span></li><br>
+        <li style="display: inline;" ><strong>pressure: </strong>{{weather.main.pressure|round:0}}<span>&emsp;hPa</span></li><br>
+        <li style="display: inline;" ><strong>description: </strong>{{weather.weather[0].description}}</li>
+        </ul>
+
+      </div>
+  </div>
+
+</div>

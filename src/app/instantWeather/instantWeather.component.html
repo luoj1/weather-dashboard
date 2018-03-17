@@ -1,0 +1,14 @@
+
+<div id='instantweatehr'>
+<h1>Current Weather</h1>
+<label>place&emsp;</label><span>{{instantdata.name}}</span><br>
+<label>temp_min&emsp;</label><span>{{(instantdata.main.temp_min-273)*9/5+32|round:0}}<span>&emsp;F</span></span><br>
+<label>temp_max&emsp;</label><span>{{(instantdata.main.temp_max-273)*9/5+32|round:0}}<span>&emsp;F</span></span><br>
+<label>cloud&emsp;</label><span>{{instantdata.clouds.all|round:0}}<span>&emsp;Cloudiness</span></span><br>
+<label>visibility&emsp;</label><span>{{instantdata.visibility|round:0}}<span>&emsp;meter</span></span><br>
+<label>wind&emsp;</label><span>speed: {{instantdata.wind.speed|round:0}}<span>&emsp;mps</span>,&emsp;deg: {{instantdata.wind.deg|round:0}}
+<span>&emsp;degree </span></span><br>
+<label>humidity&emsp;</label><span>{{instantdata.main.humidity|round:0}}<span>&emsp;%</span></span><br>
+<label>pressure&emsp;</label><span>{{instantdata.main.pressure|round:0}}<span>&emsp;hPa</span></span><br>
+<label>description&emsp;</label><span>{{instantdata.weather[0].description}}</span><br>
+</div>
